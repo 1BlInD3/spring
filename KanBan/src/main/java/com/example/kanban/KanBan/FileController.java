@@ -14,10 +14,8 @@ public class FileController {
     FileService fileService;
 
     @PostMapping("/uploadFile")
-    public void uploadFile(@RequestParam("file")MultipartFile file, RedirectAttributes redirectAttributes){
+    public void uploadFile(@RequestParam("file")MultipartFile file){
         fileService.uploadFile(file);
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
     }
 
 }
