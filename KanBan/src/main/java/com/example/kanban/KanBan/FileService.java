@@ -1,6 +1,7 @@
 package com.example.kanban.KanBan;
 
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.nio.file.attribute.PosixFilePermissions;
 
 @RestController
 public class FileService {
@@ -27,5 +27,9 @@ public class FileService {
             e.printStackTrace();
             return new Response(true,e.toString(),"");
         }
+    }
+    @GetMapping("/test")
+    public Response endPointCheck(){
+        return new Response(false,"OK","Van endpoint");
     }
 }
